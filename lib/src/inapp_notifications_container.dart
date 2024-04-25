@@ -96,7 +96,6 @@ class InAppNotificationsContainerState
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: widget.boxDecoration,
       margin: const EdgeInsets.only(top: 40.0),
       child: Stack(
         alignment: AlignmentDirectional.topCenter,
@@ -119,6 +118,7 @@ class InAppNotificationsContainerState
               return InAppNotificationsTheme.showAnimation.buildWidget(
                 _Notification(
                   title: _title,
+                  boxDecoration: widget.boxDecoration,
                   description: _description,
                   leading: widget.leading,
                   ending: widget.ending,
@@ -139,6 +139,7 @@ class _Notification extends StatelessWidget {
   final Widget? leading;
   final Widget? ending;
   final String? title;
+  final BoxDecoration? boxDecoration;
   final String? description;
   final VoidCallback? onTap;
 
@@ -146,20 +147,14 @@ class _Notification extends StatelessWidget {
       {required this.leading,
       required this.ending,
       required this.title,
+      required this.boxDecoration,
       required this.description,
       required this.onTap});
 
   Widget _buildNotification() {
     return Container(
       width: double.infinity,
-      decoration: BoxDecoration(
-          color: InAppNotificationsTheme.backgroundColor,
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: InAppNotificationsTheme.shadow
-              ? const [
-                  BoxShadow(blurRadius: 10.0, color: Colors.black26),
-                ]
-              : null),
+      decoration: boxDecoration,
       padding: const EdgeInsets.all(8.0),
       margin: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
