@@ -10,7 +10,7 @@ class InAppNotificationsContainer extends StatefulWidget {
   final Widget? leading;
   final Widget? ending;
   final String? title;
-  final BoxDecoration? containerDecoration;
+  final BoxDecoration? boxDecoration;
   final String? description;
   final VoidCallback? onTap;
   final Completer<void>? completer;
@@ -21,7 +21,7 @@ class InAppNotificationsContainer extends StatefulWidget {
     this.leading,
     this.ending,
     this.title,
-    this.containerDecoration,
+    this.boxDecoration,
     this.description,
     this.onTap,
     this.completer,
@@ -96,7 +96,7 @@ class InAppNotificationsContainerState
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: widget.containerDecoration,
+      decoration: widget.boxDecoration,
       margin: const EdgeInsets.only(top: 40.0),
       child: Stack(
         alignment: AlignmentDirectional.topCenter,

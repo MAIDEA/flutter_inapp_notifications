@@ -107,6 +107,7 @@ class InAppNotifications {
   /// [persistent] Persistent mode will keep the notification visible until dismissed
   static Future<void> show(
       {String? title,
+      BoxDecoration? boxDecoration,
       String? description,
       Widget? leading,
       Widget? ending,
@@ -115,6 +116,7 @@ class InAppNotifications {
       bool persistent = false}) {
     return _instance._show(
         title: title,
+        boxDecoration: boxDecoration,
         description: description,
         leading: leading != null
             ? SizedBox(
@@ -156,7 +158,7 @@ class InAppNotifications {
     Widget? leading,
     Widget? ending,
     String? title,
-    BoxDecoration? containerDecoration,
+    BoxDecoration? boxDecoration,
     String? description,
     VoidCallback? onTap,
     Duration? duration,
@@ -182,7 +184,7 @@ class InAppNotifications {
     _container = InAppNotificationsContainer(
       key: _key,
       title: title,
-      containerDecoration: containerDecoration,
+      boxDecoration: boxDecoration,
       description: description,
       leading: leading,
       ending: ending,
