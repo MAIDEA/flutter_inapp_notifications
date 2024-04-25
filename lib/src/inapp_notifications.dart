@@ -156,6 +156,7 @@ class InAppNotifications {
     Widget? leading,
     Widget? ending,
     String? title,
+    BoxDecoration? containerDecoration,
     String? description,
     VoidCallback? onTap,
     Duration? duration,
@@ -181,6 +182,7 @@ class InAppNotifications {
     _container = InAppNotificationsContainer(
       key: _key,
       title: title,
+      containerDecoration: containerDecoration,
       description: description,
       leading: leading,
       ending: ending,
